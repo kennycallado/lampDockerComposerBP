@@ -4,7 +4,7 @@
 
 Turn on the lamp `docker-compose up --build`
 
-### App
+### App access
 
 Accessible from http://localhost:80
 
@@ -14,6 +14,11 @@ Accessible from http://localhost:8080
 
 ## Config
 
-Root password to access mysql _toor_.
+You can configure some things throw the .env. Remember not to share it (.gitignore):
+- APP_NAME
+- ENVIRONMENT
+- DB_ROOT_PASSWORD 
+
+By default root password to access mysql _toor_.
 
 Use `mysql/init_db.sql` to insert some sql into mysql on start.
