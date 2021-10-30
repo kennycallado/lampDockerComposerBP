@@ -1,0 +1,65 @@
+version: "3"
+# Define services/containers
+services:
+  # web server
+  php-apache:
+    # Use php:8-apache image from Dockerfile
+    image: boiler_plate-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Connect to "my-network" network
+    networks:
+      - my-network
+    ports:
+      - "80:80"
+    # Depends on "mysql" network to find mysql
+    links:
+      - "mysql"
+    environment:
+      ENVIROMENT: development
+    volumes:
+      - ./src:/var/www/html
+
+  # MySQL container
+  mysql:
+    # Use mysql:lstest image from mysql/Dockerfile
+    image: boiler_plate-db
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    # Connect to "my-network" network, as defined below
+    networks:
+      - my-network
+    # Pass a list of environment variables to the container
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+    # Create presistence in mysql
+    # volumes:
+    #   - ./mysql/volume:/var/lib/mysql
+    #   - /home/docker/persistence/mysql:/var/lib/mysql
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+
+  # phpMyAdmin container
+  phpmyadmin:
+    # Use phpmyadmin/phpmyadmin:5.0.2 image
+    image: phpmyadmin/phpmyadmin:latest
+    # Connect to "my-network" network, as defined below
+    networks:
+      - my-network
+    # Map port 8080 on the host to port 80 inside the container
+    # Syntax is: "HOST_PORT:CONTAINER_PORT"
+    ports:
+      - "8080:80"
+    # Pass a list of environment variables to the container
+    environment:
+      PMA_HOST: mysql
+    # Wait for "mysql" container to start first 
+    depends_on:
+      - mysql
+
+# Define networks
+networks:
+  my-network:
