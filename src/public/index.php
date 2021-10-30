@@ -1,4 +1,4 @@
 <?php
 
 
-echo "$_ENV[ENVIROMENT]";
+echo "$_ENV[ENVIRONMENT]";

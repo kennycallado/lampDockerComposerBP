@@ -1,6 +1,6 @@
 FROM php:8-apache
 
-ENV ENVIROMENT="production"
+ENV ENVIRONMENT="production"
 
 RUN docker-php-ext-install pdo_mysql \
   && docker-php-ext-enable pdo_mysql

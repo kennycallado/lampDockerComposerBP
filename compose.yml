@@ -4,7 +4,7 @@ services:
   # web server
   php-apache:
     # Use php:8-apache image from Dockerfile
-    image: boiler_plate-web
+    image: ${APP_NAME}-web
     build:
       context: .
       dockerfile: Dockerfile
@@ -17,14 +17,14 @@ services:
     links:
       - "mysql"
     environment:
-      ENVIROMENT: development
+      ENVIRONMENT: ${ENVIRONMENT}
     volumes:
       - ./src:/var/www/html
 
   # MySQL container
   mysql:
     # Use mysql:lstest image from mysql/Dockerfile
-    image: boiler_plate-db
+    image: $APP_NAME-db
     build:
       context: ./mysql
       dockerfile: Dockerfile
@@ -35,7 +35,7 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     # Create presistence in mysql
     # volumes:
     #   - ./mysql/volume:/var/lib/mysql
