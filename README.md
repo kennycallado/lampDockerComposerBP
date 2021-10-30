@@ -4,6 +4,8 @@
 
 Turn on the lamp `docker-compose up --build`
 
+In case you want to remove the containers after they finish `docker-compose up && docker-compose rm -fsv`
+
 ### App access
 
 Accessible from http://localhost:80
