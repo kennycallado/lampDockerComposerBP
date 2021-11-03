@@ -6,4 +6,4 @@ RUN docker-php-ext-install mysqli pdo_mysql \
   && docker-php-ext-enable mysqli pdo_mysql
 RUN a2enmod rewrite
 
-COPY src/ /var/www/html
+COPY . /var/www/html

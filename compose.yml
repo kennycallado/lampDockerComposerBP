@@ -6,7 +6,7 @@ services:
     # Use php:8-apache image from Dockerfile
     image: ${APP_NAME}-web
     build:
-      context: .
+      context: ./src
       dockerfile: Dockerfile
     # Connect to "my-network" network
     networks:
