@@ -3,5 +3,9 @@
     "psr-4": {
       "App\\": "app/"
     }
+  },
+  "require": {
+    "twig/twig": "^3.0",
+    "twig/intl-extra": "^3.3"
   }
 }
