@@ -2,7 +2,11 @@
 
 ## Features
 
-Added composer.
+### Added composer.
+
+### Added twig.
+
+To make it work I have include a new dependency into the _Dockerfile_, _libicu-dev_ to be able to install _intl_ through _docker-php-ext-install_. This means that the built image is like 200mg bigger, however, with it you can set the _locale_ in functions like `format_date()`, `format_currency()`, etc.
 
 ## Turn on
 
