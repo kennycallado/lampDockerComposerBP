@@ -1,5 +1,9 @@
 RewriteEngine On
 
+# redirecciona assets hacia public
+RewriteRule ^assets/(.+)$ public/assets/$1 [QSA,L]
+
+# Todo el resto lo redirecciona hacia el punto de entrada
 DirectoryIndex public/index.php 
 RewriteBase /
 
