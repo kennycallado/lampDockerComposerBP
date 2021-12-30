@@ -1,5 +1,7 @@
 # lamp docker-compose boiler plate
 
+Changed the database to mariadb to get better compatibility with arm.
+
 ## Features
 
 ### Added composer.

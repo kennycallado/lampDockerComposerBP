@@ -22,6 +22,7 @@ services:
       - ./src:/var/www/html
 
   # MySQL container
+  # Changed to mariadb, however keep the names
   mysql:
     # Use mysql:lstest image from mysql/Dockerfile
     image: $APP_NAME-db
