@@ -4,6 +4,10 @@ Changed the database to mariadb to get better compatibility with arm.
 
 ## Features
 
+You will find an example for doctrine and other for twig commented in index.php.
+
+### Added doctrine.
+
 ### Added composer.
 
 ### Added twig.

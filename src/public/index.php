@@ -18,3 +18,70 @@ echo "$_ENV[ENVIRONMENT]";
  * 
  * echo $twig->render("index.html");
  */
+
+/*
+ * Test for doctrine. Remember to create a entity directory
+ * and create Agent.php and AgentRepository.php (content of
+ * them next commented section)
+ * 
+ *
+ * use Doctrine\ORM\Tools\Setup;
+ * use Doctrine\ORM\EntityManager;
+ * 
+ * use App\Models\Agent;
+ * 
+ * $paths = array("app/Models/");
+ * $isDevMode = true;
+ * 
+ * $dbParams = array(
+ *   'host'     => 'mysql',
+ *   'driver'   => 'pdo_mysql',
+ *   'user'     => 'root',
+ *   'password' => 'toor',
+ *   'dbname'   => 'db_agent',
+ * );
+ * 
+ * $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
+ * $entityManager = EntityManager::create($dbParams, $config);
+ * 
+ * $agents = $entityManager->getRepository(Agent::class)->findAll();
+ * 
+ * var_dump($agents);
+ *
+ */
+
+/* Agent.php */
+//
+// <?php
+// namespace App\Models;
+// use App\Models\AgentRepository;
+// /**
+//  * @Entity(repositoryClass=AgentRepository::class)
+//  * @Table(name="t_agent")
+//  */
+// class Agent
+// {
+//   /**
+//    * @Id
+//    * @GeneratedValue
+//    * @Column(type="integer")
+//    */
+//   private $agent_id;
+//
+//   /** @Column(type="string") */
+//   private $agent_name;
+//
+//   /** @Column(type="string") */
+//   private $password;
+// }
+
+/* AgentRepository.php */
+//
+// <?php
+// namespace App\Models;
+//
+// use App\Models\Agent;
+// use Doctrine\ORM\EntityRepository;
+//
+// class AgentRepository extends EntityRepository
+// {}
